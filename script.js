@@ -1,5 +1,4 @@
 import PhotoSwipe from "./libs/photoswipe/photoswipe.js";
-import PhotoSwipeLightbox from "./libs/photoswipe/lightbox/lightbox.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const galleryContainer = document.getElementById("gallery");
