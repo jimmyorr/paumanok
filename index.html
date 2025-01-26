@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paumanok</title>
+    <link rel="stylesheet" href="https://unpkg.com/photoswipe/dist/photoswipe.css">
+    <link rel="stylesheet" href="https://unpkg.com/photoswipe/dist/default-skin/default-skin.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Paumanok</h1>
+    <div class="gallery" id="gallery"></div>
+
+    <!-- PhotoSwipe Core -->
+    <script src="https://unpkg.com/photoswipe/dist/photoswipe.min.js"></script>
+    <script src="https://unpkg.com/photoswipe/dist/photoswipe-ui-default.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
