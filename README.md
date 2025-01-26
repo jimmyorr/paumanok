@@ -1,3 +1,3 @@
 # Paumanok
 
-These are assets for the "Paumanok" project.
+[Gallery](https://jimmyorr.github.io/paumanok/)
