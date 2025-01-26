@@ -1,3 +1,6 @@
+import PhotoSwipe from "./libs/photoswipe/photoswipe.js";
+import PhotoSwipeLightbox from "./libs/photoswipe/lightbox/lightbox.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const galleryContainer = document.getElementById("gallery");
     const imageFolder = "./cards";
@@ -11,13 +14,20 @@ document.addEventListener("DOMContentLoaded", () => {
         "deck-purple-6.png", "player-1.png", "player-2.png",
         "region-blue.png", "region-green.png", "region-purple.png",
         "rules-1.png", "rules-2.png", "rules-3.png", "rules-4.png",
-    ]
+    ];
 
-    images.forEach((image) => {
+    const items = images.map((image) => ({
+        src: `${imageFolder}/${image}`,
+        width: 825,
+        height: 1125,
+        alt: image
+    }));
+
+    images.forEach((image, index) => {
         const link = document.createElement("a");
         link.href = `${imageFolder}/${image}`;
-        link.setAttribute("data-pswp-width", "800"); // Replace with actual dimensions if possible
-        link.setAttribute("data-pswp-height", "600");
+        link.setAttribute("data-pswp-width", "825");
+        link.setAttribute("data-pswp-height", "1125");
 
         const img = document.createElement("img");
         img.src = `${imageFolder}/${image}`;
@@ -25,12 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         link.appendChild(img);
         galleryContainer.appendChild(link);
-    });
 
-    // Initialize PhotoSwipe
-    const gallery = new PhotoSwipe({
-        gallery: "#gallery",
-        children: "a",
-        pswpModule: PhotoSwipe,
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+            const pswp = new PhotoSwipe({
+                dataSource: items,
+                index: index,
+                bgOpacity: 0.8,
+                showHideOpacity: true
+            });
+            pswp.init();
+        });
     });
 });

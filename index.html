@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paumanok</title>
-    <link rel="stylesheet" href="https://unpkg.com/photoswipe/dist/photoswipe.css">
+    <link rel="stylesheet" href="css/photoswipe.css">
     <link rel="stylesheet" href="https://unpkg.com/photoswipe/dist/default-skin/default-skin.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
         }
 
         h1 {
             font-family: 'Lobster', cursive;
-            font-size: 3rem;
+            font-size: 4rem;
+            text-align: center;
         }
 
         .gallery {
@@ -27,8 +27,8 @@
         }
 
         .gallery img {
-            width: 150px;
-            height: 200px;
+            width: 165px;
+            height: 225px;
             object-fit: cover;
             cursor: pointer;
         }
@@ -39,10 +39,39 @@
     <h1>Paumanok</h1>
     <div class="gallery" id="gallery"></div>
 
-    <!-- PhotoSwipe Core -->
-    <script src="https://unpkg.com/photoswipe/dist/photoswipe.min.js"></script>
-    <script src="https://unpkg.com/photoswipe/dist/photoswipe-ui-default.min.js"></script>
-    <script src="script.js"></script>
+    <!-- PhotoSwipe Core Structure -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>
