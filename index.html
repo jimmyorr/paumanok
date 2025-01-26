@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <style>
         body {
+            /* Background gradient. */
             background: linear-gradient(to bottom, lightblue, aliceblue);
-            font-family: Arial, sans-serif;
             /* Set the body to always cover the full viewport height (100vh),
                so the background fills the screen even if the content is shorter. */
             min-height: 100vh;
@@ -24,16 +24,20 @@
         }
 
         .gallery {
+            /* Flexible layout. */
             display: flex;
+            /* Wrap if necessary. */
             flex-wrap: wrap;
+            /* Gap between items. */
             gap: 10px;
+            /* Center horizontally within the container. */
             justify-content: center;
         }
 
         .gallery img {
+            /* 20% of the full image size. */
             width: 165px;
             height: 225px;
-            object-fit: cover;
             cursor: pointer;
             /* Rounded corners. */
             border-radius: 10px;
