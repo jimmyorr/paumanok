@@ -30,7 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const img = document.createElement("img");
         img.src = `${imageFolder}/${image}`;
-        img.alt = image;
+        // Provide a readable alt text from the filename (e.g. "deck blue 1")
+        img.alt = image.replace(/[-_]/g, ' ').replace(/\.png$/i, '');
+        // Performance / UX: avoid layout shift and defer offscreen images
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.width = 165;
+        img.height = 225;
+        img.setAttribute('aria-label', img.alt);
 
         link.appendChild(img);
         galleryContainer.appendChild(link);

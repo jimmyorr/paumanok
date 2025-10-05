@@ -10,6 +10,8 @@
         gtag('js', new Date());
         gtag('config', 'G-VGJ6409WFZ');
     </script>
+    <meta name="description" content="Paumanok — a minimal gallery of card images">
+    <link rel="icon" href="favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paumanok</title>
@@ -62,7 +64,13 @@
 
 <body>
     <h1>Paumanok</h1>
-    <div class="gallery" id="gallery"></div>
+    <main>
+        <div class="gallery" id="gallery" aria-live="polite"></div>
+        <noscript>
+            <p style="text-align:center">This gallery requires JavaScript. Open the <code>cards/</code> folder to view
+                images if JavaScript is disabled.</p>
+        </noscript>
+    </main>
 
     <!-- PhotoSwipe Core Structure -->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">

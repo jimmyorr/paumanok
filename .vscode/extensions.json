@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "josevseb.google-java-format-for-vs-code",
+    "xaver.clang-format",
+    "eeyore.yapf",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "ms-vscode.cpptools"
+  ]
+}
