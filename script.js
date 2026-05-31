@@ -1,4 +1,4 @@
-import PhotoSwipe from "./libs/photoswipe/photoswipe.js";
+import PhotoSwipe from "https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const galleryContainer = document.getElementById("gallery");
