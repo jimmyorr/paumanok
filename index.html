@@ -1,110 +1,139 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VGJ6409WFZ"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-VGJ6409WFZ"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-VGJ6409WFZ');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-VGJ6409WFZ");
     </script>
-    <meta name="description" content="Paumanok — a minimal gallery of card images">
-    <link rel="icon" href="favicon.ico">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="Paumanok — a minimal gallery of card images"
+    />
+    <link rel="icon" href="favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paumanok</title>
-    <link rel="stylesheet" href="css/photoswipe.css">
-    <link rel="stylesheet" href="https://unpkg.com/photoswipe/dist/default-skin/default-skin.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/photoswipe.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/photoswipe/dist/default-skin/default-skin.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            /* Background gradient. */
-            background: linear-gradient(to bottom, lightblue, aliceblue);
-            /* Set the body to always cover the full viewport height (100vh),
+      body {
+        /* Background gradient. */
+        background: linear-gradient(to bottom, lightblue, aliceblue);
+        /* Set the body to always cover the full viewport height (100vh),
                so the background fills the screen even if the content is shorter. */
-            min-height: 100vh;
-        }
+        min-height: 100vh;
+      }
 
-        h1 {
-            font-family: 'Lobster', cursive;
-            font-size: 4rem;
-            text-align: center;
-        }
+      h1 {
+        font-family: "Lobster", cursive;
+        font-size: 4rem;
+        text-align: center;
+      }
 
-        .gallery {
-            /* Flexible layout. */
-            display: flex;
-            /* Wrap if necessary. */
-            flex-wrap: wrap;
-            /* Gap between items. */
-            gap: 10px;
-            /* Center horizontally within the container. */
-            justify-content: center;
-        }
+      .gallery {
+        /* Flexible layout. */
+        display: flex;
+        /* Wrap if necessary. */
+        flex-wrap: wrap;
+        /* Gap between items. */
+        gap: 10px;
+        /* Center horizontally within the container. */
+        justify-content: center;
+      }
 
-        .gallery img {
-            /* 20% of the full image size. */
-            width: 165px;
-            height: 225px;
-            cursor: pointer;
-            /* Rounded corners. */
-            border-radius: 10px;
-            /* Subtle shadow effect. */
-            box-shadow: 0 2px 5px darkgray;
-        }
+      .gallery img {
+        /* 20% of the full image size. */
+        width: 165px;
+        height: 225px;
+        cursor: pointer;
+        /* Rounded corners. */
+        border-radius: 10px;
+        /* Subtle shadow effect. */
+        box-shadow: 0 2px 5px darkgray;
+      }
 
-        .pswp__img {
-            /* Same rounded corners as the gallery view. */
-            border-radius: 10px;
-        }
+      .pswp__img {
+        /* Same rounded corners as the gallery view. */
+        border-radius: 10px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Paumanok</h1>
     <main>
-        <div class="gallery" id="gallery" aria-live="polite"></div>
-        <noscript>
-            <p style="text-align:center">This gallery requires JavaScript. Open the <code>cards/</code> folder to view
-                images if JavaScript is disabled.</p>
-        </noscript>
+      <div class="gallery" id="gallery" aria-live="polite"></div>
+      <noscript>
+        <p style="text-align: center">
+          This gallery requires JavaScript. Open the <code>cards/</code> folder
+          to view images if JavaScript is disabled.
+        </p>
+      </noscript>
     </main>
 
     <!-- PhotoSwipe Core Structure -->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="pswp__bg"></div>
-        <div class="pswp__scroll-wrap">
-            <div class="pswp__container">
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-            </div>
-            <div class="pswp__ui pswp__ui--hidden">
-                <div class="pswp__top-bar">
-                    <div class="pswp__counter"></div>
-                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                    <div class="pswp__preloader">
-                        <div class="pswp__preloader__icn">
-                            <div class="pswp__preloader__cut">
-                                <div class="pswp__preloader__donut"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
-                <div class="pswp__caption">
-                    <div class="pswp__caption__center"></div>
-                </div>
-            </div>
+      <div class="pswp__bg"></div>
+      <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
         </div>
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <div class="pswp__counter"></div>
+            <button
+              class="pswp__button pswp__button--close"
+              title="Close (Esc)"
+            ></button>
+            <button
+              class="pswp__button pswp__button--fs"
+              title="Toggle fullscreen"
+            ></button>
+            <button
+              class="pswp__button pswp__button--zoom"
+              title="Zoom in/out"
+            ></button>
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="pswp__button pswp__button--arrow--left"
+            title="Previous (arrow left)"
+          ></button>
+          <button
+            class="pswp__button pswp__button--arrow--right"
+            title="Next (arrow right)"
+          ></button>
+          <div class="pswp__caption">
+            <div class="pswp__caption__center"></div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script type="module" src="script.js"></script>
-</body>
-
+  </body>
 </html>

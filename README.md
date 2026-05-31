@@ -1,3 +1,3 @@
 # Paumanok
 
-[Gallery](https://jimmyorr.github.io/paumanok/)
+[Gallery](https://paumanok.cowneck.com)
