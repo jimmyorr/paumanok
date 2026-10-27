@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     src: `${imageFolder}/${image}`,
     width: 825,
     height: 1125,
-    alt: image,
+    alt: image.replace(/[-_]/g, " ").replace(/\.png$/i, ""),
   }));
 
   images.forEach((image, index) => {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const img = document.createElement("img");
     img.src = `${imageFolder}/${image}`;
     // Provide a readable alt text from the filename (e.g. "deck blue 1")
-    img.alt = image.replace(/[-_]/g, " ").replace(/\.png$/i, "");
+    img.alt = items[index].alt;
     // Performance / UX: avoid layout shift and defer offscreen images
     img.loading = "lazy";
     img.decoding = "async";
@@ -60,14 +60,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     link.appendChild(img);
     galleryContainer.appendChild(link);
+    items[index].element = link;
 
     link.addEventListener("click", (event) => {
       event.preventDefault();
       const pswp = new PhotoSwipe({
         dataSource: items,
         index: index,
-        bgOpacity: 0.8,
-        showHideOpacity: true,
+        bgOpacity: 0.85,
+        showHideAnimationType: "zoom",
       });
       pswp.init();
     });

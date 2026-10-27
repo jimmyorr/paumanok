@@ -83,12 +83,20 @@
         /* Set the body to always cover the full viewport height (100vh),
                so the background fills the screen even if the content is shorter. */
         min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
       }
 
       h1 {
         font-family: "Lobster", cursive;
         font-size: 4rem;
         text-align: center;
+        color: #333;
+        margin-bottom: 40px;
       }
 
       .gallery {
@@ -97,9 +105,11 @@
         /* Wrap if necessary. */
         flex-wrap: wrap;
         /* Gap between items. */
-        gap: 10px;
+        gap: 15px;
         /* Center horizontally within the container. */
         justify-content: center;
+        max-width: 1200px;
+        margin: 0 auto;
       }
 
       .gallery img {
@@ -110,7 +120,13 @@
         /* Rounded corners. */
         border-radius: 10px;
         /* Subtle shadow effect. */
-        box-shadow: 0 2px 5px darkgray;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out;
+        display: block;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.05);
       }
 
       .pswp__img {
@@ -131,53 +147,6 @@
         </p>
       </noscript>
     </main>
-
-    <!-- PhotoSwipe Core Structure -->
-    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="pswp__bg"></div>
-      <div class="pswp__scroll-wrap">
-        <div class="pswp__container">
-          <div class="pswp__item"></div>
-          <div class="pswp__item"></div>
-          <div class="pswp__item"></div>
-        </div>
-        <div class="pswp__ui pswp__ui--hidden">
-          <div class="pswp__top-bar">
-            <div class="pswp__counter"></div>
-            <button
-              class="pswp__button pswp__button--close"
-              title="Close (Esc)"
-            ></button>
-            <button
-              class="pswp__button pswp__button--fs"
-              title="Toggle fullscreen"
-            ></button>
-            <button
-              class="pswp__button pswp__button--zoom"
-              title="Zoom in/out"
-            ></button>
-            <div class="pswp__preloader">
-              <div class="pswp__preloader__icn">
-                <div class="pswp__preloader__cut">
-                  <div class="pswp__preloader__donut"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button
-            class="pswp__button pswp__button--arrow--left"
-            title="Previous (arrow left)"
-          ></button>
-          <button
-            class="pswp__button pswp__button--arrow--right"
-            title="Next (arrow right)"
-          ></button>
-          <div class="pswp__caption">
-            <div class="pswp__caption__center"></div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <script type="module" src="script.js"></script>
   </body>
