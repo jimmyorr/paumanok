@@ -1,8 +1,9 @@
-import PhotoSwipe from "https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js";
+const photoSwipePromise = import("./js/photoswipe.esm.min.js");
 
-document.addEventListener("DOMContentLoaded", () => {
+function initGallery() {
   const galleryContainer = document.getElementById("gallery");
   const imageFolder = "./cards";
+  const thumbFolder = "./thumbs";
   const images = [
     "deck-back.png",
     "deck-blue-1.png",
@@ -34,25 +35,33 @@ document.addEventListener("DOMContentLoaded", () => {
     "rules-4.png",
   ];
 
-  const items = images.map((image) => ({
-    src: `${imageFolder}/${image}`,
-    width: 825,
-    height: 1125,
-    alt: image.replace(/[-_]/g, " ").replace(/\.png$/i, ""),
-  }));
+  const items = images.map((image) => {
+    const base = image.replace(/\.[^.]+$/, "");
+    return {
+      src: `${imageFolder}/${image}`,
+      msrc: `${thumbFolder}/${base}.webp`,
+      width: 825,
+      height: 1125,
+      alt: base.replace(/[-_]/g, " "),
+    };
+  });
 
   images.forEach((image, index) => {
     const link = document.createElement("a");
-    link.href = `${imageFolder}/${image}`;
+    link.href = items[index].src;
     link.setAttribute("data-pswp-width", "825");
     link.setAttribute("data-pswp-height", "1125");
 
     const img = document.createElement("img");
-    img.src = `${imageFolder}/${image}`;
+    img.src = items[index].msrc;
     // Provide a readable alt text from the filename (e.g. "deck blue 1")
     img.alt = items[index].alt;
-    // Performance / UX: avoid layout shift and defer offscreen images
-    img.loading = "lazy";
+    // Performance / UX: prioritize first row, lazy-load remaining rows
+    if (index === 0) {
+      img.fetchPriority = "high";
+    } else if (index >= 6) {
+      img.loading = "lazy";
+    }
     img.decoding = "async";
     img.width = 165;
     img.height = 225;
@@ -62,8 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
     galleryContainer.appendChild(link);
     items[index].element = link;
 
-    link.addEventListener("click", (event) => {
+    link.addEventListener("click", async (event) => {
       event.preventDefault();
+      const { default: PhotoSwipe } = await photoSwipePromise;
       const pswp = new PhotoSwipe({
         dataSource: items,
         index: index,
@@ -73,4 +83,10 @@ document.addEventListener("DOMContentLoaded", () => {
       pswp.init();
     });
   });
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initGallery);
+} else {
+  initGallery();
+}
